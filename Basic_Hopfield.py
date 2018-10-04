@@ -22,7 +22,10 @@ def cr(a,b):
             t+=1
     return round(t/117*100,2)
 def rbm(a,b,c):
-    with open('Basic_Training.txt','r') as f:
+    script_dir = os.path.dirname(__file__) 
+    rel_path = "data/Basic_Training.txt"
+    abs_file_path = os.path.join(script_dir, rel_path)
+    with open(abs_file_path,'r') as f:
         for k, line in enumerate(f):
             if k<13:
                 for i in range(len(line)):
@@ -37,7 +40,10 @@ def rbm(a,b,c):
                     if line[i]=='1':
                         c[0,(k-28)*9+i]=int(1)
 def rtestbm(at,bt,ct):
-    with open('Basic_Testing.txt','r') as f:
+    script_dir = os.path.dirname(__file__) 
+    test_path = "data/Basic_Testing.txt"
+    abs_file_path = os.path.join(script_dir,test_path)
+    with open(abs_file_path,'r') as f:
         for k, line in enumerate(f):
             if k<13:
                 for i in range(len(line)):
